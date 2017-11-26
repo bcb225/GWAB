@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>GWAB Run</title>
+  <meta name="description" content="">
+  <meta name="author" content=""> 
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="show_ex.js"></script>
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: -10,
+      max: 2,
+      step : 0.05,
+      values: [ -6, -2 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( ui.values[ 0 ] + " ~ " + ui.values[ 1 ] + " ( " + Math.pow(10, ui.values[ 0 ]).toExponential(2) + " ~ " + Math.pow(10, ui.values[ 1 ]).toExponential(2) +" )" );
+      }
+    });
+    $( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 ) + " ~ " + $( "#slider-range" ).slider( "values", 1 ) + " ( " + Math.pow(10, $( "#slider-range" ).slider( "values", 0 )).toExponential(2) + " ~ " + Math.pow(10, $( "#slider-range" ).slider( "values", 1 )).toExponential(2) +" )" );
+  });
+  </script>
+</head>
+<body>
+<div class="container">
+  <div class="row" style="margin-top: 5%">
+    <a href="index.html"><h1>GWAB</h1></a>
+  </div>
+</div>
+<div class="container">
+       <nav>
+       <hr>
+          <ul>
+            <!--상단에 메뉴를 만든다 이때 menu-button클래스를 이용해 메뉴의 버튼의 크기를 지정해준다.-->
+            <li class="menu-button"><a href="index.html">Introduction</a></li>
+            <li class="menu-button"><a href="before_start.html">Before Start</a></li>
+            <li class="menu-button" id="selected"><a href="#" style="color:#1EAEDB;">GWAB Run</a></li>
+            <li class="menu-button"><a href="studies.html">Studies</a></li>
+            <li class="menu-button"><a href="about.html">About Page</a></li>
+            </ul>
+        <hr>
+        </nav>
+</div>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <h4>GWAB RUN</h4>
+        <p>Submit files and run GWAB</p>
+      </div>
+    </div>
+  </div>
+<!-- The above form looks like this -->
+<div class="container">
+  <a class="button" id="ex_show" onclick="ex_show()">Fill toy exmple</a>
+  <a class="button" href="result.php?u_id=eff4d2f09652384e3fd8a9cec53916e4" target="_blank">Show expected result</a>
+  <form action="submit.php" name="submit" method="post" enctype="multipart/form-data" id="gwas_form">
+    <div class="row">
+      <div class="twelve columns">
+        <label for="exampleEmailInput">Your email (Job status and results will be sent to your email.)</label>
+        <input class="u-full-width" type="email" name="email_input" placeholder="name@mailbox.com" id="exampleEmailInput" required>
+      </div>
+    </div>
+
+    <div class="row" id="gwas_row">
+     <div class="twelve columns" id="gwas_sum_file">
+        <label for="GWAS_sum_stat">GWAS summary stat</label>
+        <input class="u-full-width" name="gwas_input" type="file" id="GWAS_sum_stat">
+      </div>
+    </div>
+
+    <div class="row" id="ex_gwas_row" hidden="true">
+     <div class="twelve columns">
+        <label for="ex_gwas_input">GWAS summary stat</label>
+        <input class="u-full-width" name="ex_gwas_input" type="text" id="ex_gwas_input" readonly>
+      </div>
+    </div>
+
+    <div class="row" id = "disease_row">
+     <div class="six columns">
+        <label for="Disease_Gene_Set">Known disease genelist</label>
+        <input class="u-full-width" name="disease_set" type="file" id="disease_gene_set">
+      </div>
+      <div class="six columns">
+        <label for="Disease_Name">Disease Name</label>
+        <input class="u-full-width" name="disease_input" type="text" id="disease_name">
+      </div>
+    </div>
+
+    <div class="row" id = "ex_disease_row" hidden="true">
+     <div class="six columns">
+        <label for="Disease_Gene_Set">Known disease genelist</label>
+        <input class="u-full-width" name="ex_disease_set" type="text" id="ex_disease_gene_set" readonly> 
+      </div>
+      <div class="six columns">
+        <label for="Disease_Name">Disease Name</label>
+        <input class="u-full-width" name="ex_disease_input" type="text" id="ex_disease_name" readonly>
+      </div>
+    </div>
+ 
+    <div class="row">
+     <div class="six columns">
+        <label for="build_ver">Build Version</label>
+        <select class="u-full-width" name="build_input" id="build_ver" required>
+          <option value="0">Hg18</option>
+          <option value="1">Hg19</option>
+        </select>
+      </div>
+      <div class="six columns">
+          <label for="range">Residue</label>
+          <input class="u-full-width" name="residue_input" type="number" step="1"   value="10000" id="residue" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="six columns">
+        <label for="amount">Log p-value</label>
+
+        <input type="text" id="amount" name="prior_input" class="u-full-width" value="-6 ~ -2 ( 1.00e-6 ~ 1.00e-2 )" readonly >
+         <div id="slider-range"></div>
+        
+      </div>
+      <div class="six columns">
+          <label for="range">Interval</label>
+          <input class="u-full-width" name="range_input"  type="text"   value="0.3" id="residue" required>
+      </div>
+    </div>
+    <br>
+    <br>   
+    <input class="button-primary" type="submit" value="Submit">
+    <input class="button-primary" onclick="true_show()" type="reset" value="Reset">
+  </form>
+</div>
+
+<!-- Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it -->
+
+<!-- Note: The class .u-full-width is just a utility class shorthand for width: 100% -->
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<footer><p style="font-style:oblique;text-decoration:underline;">&copy;2016 NETBIO LAB @ YONSEI UNIV. All rights reserved</p></footer>
+</body>
+</html>

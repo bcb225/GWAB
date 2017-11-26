@@ -1,0 +1,80 @@
+footer {/*footer를 구성한다. position은 fixed이고 폰트크기를 작게 설정해 내용을 보는데 문제가 없게했다.*/
+    font-weight : 100;
+    color : white;/*배경이 반투명이라 잘보이는 하얀색 글씨를 사용하였다.*/
+    font-size : 0.8em;
+    clear : both;
+    position:fixed;
+    bottom:0px;
+    width:100%;
+    background-color : rgba(0,0,0,0.6);
+    z-index:2;
+    height: 2em;
+}
+nav{/*메뉴이다 백그라운드 컬러를 반투명으로 해서 디자인을 살렸다.*/
+    /*clear both로 양옆에 다른 요소가 오지 못하게 하였다.*/
+    clear :both;
+    position : relative;
+    top : 0px;
+    left : 1px;
+    right : 1px;
+    /*background-color : rgba(0,0,0,0.6);*/
+}
+nav ul {
+    list-style : none;
+    text-align:center;
+    padding : 0;
+    margin : 0;
+}
+nav li{/*display가 inline-block으로 되었다.*/
+    display : inline-block;
+}
+nav a{/*링크의 데코레이션을 지워서 밑줄을 지웠다.*/
+   text-decoration :none;
+   display : block;
+   color : #000;
+}
+a{/*링크의 데코레이션을 지워서 밑줄을 지웠다.*/
+   text-decoration :none;
+   color : #000;
+}
+a:hover{/*링크의 데코레이션을 지워서 밑줄을 지웠다.*/
+   text-decoration :none;
+   color : #000;
+}
+nav a:hover{/*링크의 밑줄을 지우고 배경을 회색으로 만든다.*/
+    color : black; 
+    background : #e9e9e9;
+}
+hr{
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+#selected{/*현재 페이지의 메뉴 부분을 회색처리*/
+    background-color : #e9e9e9;
+}
+.menu-button {/*이 메뉴 버튼은 메뉴 각각의 크기가 일정하게 해주는 효과이다.*/
+    width: 15%;
+    height: 100%;
+    text-align: center;
+    font-size : 1.2em;/*글씨를 좀 크게해서 가독성 높인다.*/
+    line-height: 40px;
+    
+}
+@media handheld and (max-width:480px), screen and (max-width:480px), screen and (max-device-width:480px){
+.menu-button {
+    width: 150px;
+    text-align: center;
+    font-size : 1em;
+    line-height: 40px;
+    height: 40px;
+    }
+}
+@media only screen and (min-device-width: 768px) and (max-width:1024px){/*tablet을 위한 media query이다.*/
+ .menu-button {/**/
+    width: 150px;
+    text-align: center;
+    font-size : 1em;
+    line-height: 40px;
+    height: 40px;
+    }
+}

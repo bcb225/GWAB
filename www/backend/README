@@ -1,0 +1,14 @@
+usage:
+
+python generate_plot_optimalP.py 10 $phenotype $genelist $network $chrpos $phenotype $boost
+10 = number of shuffles
+$phenotype = outputfile name
+$genelist = input genes (for validation)
+$network = network (download file from http://www.inetbio.org/aranet/downloadnetwork.php)
+$chrpos = snp chromosome position file (FT22_chr.pos) //gns.txt
+$phenotype = name of the phenotype (ex. FT:flowering time) //input
+$boost = snp-pvalue file for boosting(7_FT22_pvalue_forboost_incremental) //p-value gwas summury file --> snp & p-value mapping
+
+example:
+
+python generate_plot_optimalP.py 10 FT_test.out floweringVern_noIEPgenes AraNet.txt FT22_chr.pos FT 7_FT22_pvalue_forboost_incremental
